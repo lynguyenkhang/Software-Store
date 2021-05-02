@@ -1,2 +1,5 @@
 .env
 node_modules
+.DS_Store
+publics/.DS_Store
+publics/images/.DS_Store
