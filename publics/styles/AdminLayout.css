@@ -1,0 +1,10 @@
+.admin__NavLogo{
+    background-image: url('../imgs/logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: block;
+}

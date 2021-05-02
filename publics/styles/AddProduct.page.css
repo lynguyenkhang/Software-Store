@@ -1,0 +1,39 @@
+.addProduct__errorsBox {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin: 0px 20px;
+}
+
+    .addProduct__errors {
+        list-style-type: none !important;
+        width: 100%;
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 0px;
+        margin: 0px;
+    }
+
+        .addProduct__errors li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 5px 10px 5px 10px;
+            transition: all .3s;
+        }
+            .addProduct__errors li span{
+                margin-right: 8px;
+            }
+
+            .addProduct__closeErrorIcon{
+                width: 10px;
+                height: 10px;
+                background-image: url('/images/brownClose.png');
+                background-size: cover;
+            }

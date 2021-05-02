@@ -1,0 +1,71 @@
+
+.products__macbookContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: -1000px;
+    transition: all .8s;
+}
+
+.products__macbookContainerActive {
+    left: 0px;
+}
+
+
+
+
+.products__galleryTopMacbook{
+    height: 75%;
+    width: 100%;
+}
+
+
+
+/* .products__galleryTopMacbookActive {
+    left: 0px !important;
+} */
+
+.products__galleryThumbsMacbook{
+    height: 25%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    width: calc(100% - 20px) !important;
+}
+
+/* .products__galleryThumbsMacbookActive {
+    left: 0px !important;
+} */
+
+
+.products__colorProductLineMacbookActive {
+    opacity: 1 !important;
+    font-weight: bold !important;
+    color: #0075ff !important;
+    font-size: 17px !important;
+}
+
+
+.products__colorProductLineMacbook{
+    font-size: 14px;
+    margin: 10px 5px;
+    display: flex !important;
+    align-items: center;
+    display: block;
+    width: max-content !important;
+    height: 20px !important;
+    border-radius: 0px !important;
+    background-color: #fff !important;
+    opacity: .3;                
+    outline: none;
+    transition: all .3s;
+}
+    .products__colorProductLineMacbook div {
+        width: 15px;
+        height: 15px;
+        margin-right: 15px;
+        background-color: red;
+        border: 1px solid #888;
+        border-radius: 3px;
+    }

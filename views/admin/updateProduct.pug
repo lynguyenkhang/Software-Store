@@ -1,0 +1,72 @@
+extends ../layouts/adminLayout
+block content
+    link(rel="stylesheet", href="/styles/OrdersAdmin.css")
+    link(rel="stylesheet", href="/styles/AddProduct.page.css")
+
+
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/')
+            .admin__NavLogo
+
+        .collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    a(href="/admin").btn.nav-link Danh sách
+                li.nav-item
+                    a(href="/admin/addProduct").btn.nav-link Thêm sản phẩm
+                li.nav-item.active
+                    a(href="/admin/orders").btn.nav-link Đơn hàng
+
+
+
+
+    .OrdersAdmin__tableContainer
+
+
+        if(errors)
+            .addProduct__errorsBox
+                ul.addProduct__errors
+                    each error in errors
+                        li
+                            span=error
+ 
+
+        h1.mt-3 Thêm sản phẩm
+
+        form(action=`/admin/updateProduct/${Product._id}` method="post")
+            .mb-3
+                label.form-label(for='name') Name
+                input#name.form-control(name="name" value=`${Product.name}`)
+            .mb-3
+                label.form-label(for='category') Category
+                input#category.form-control(name="category" value=`${Product.category}`)
+            .mb-3
+                label.form-label(for='image') Image Link
+                input#image.form-control(name="image" value=`${Product.img[0]}`)
+            .mb-3
+                label.form-label(for='price' ) Price
+                input#price.form-control(name="price" type="number" value=`${Product.price}`)
+
+            .mb-3
+                label.form-label Describe
+
+                .ml-3.mb-3
+                    label.form-label(for='title') Title:
+                    input#title.form-control(name="title" value=`${title}`)
+
+                .ml-3.mb-3
+                    label.form-label(for='p1') Paragraph 1:
+                    input#p1.form-control(name="p1" value=`${p1}`)
+                .ml-3.mb-3
+                    label.form-label(for='p2') Paragraph 2:
+                    input#p2.form-control(name="p2" value=`${p2}`)
+
+                .ml-3.mb-3
+                    label.form-label(for='p3') Paragraph 3:
+                    input#p3.form-control(name="p3" value=`${p3}`)
+
+                .ml-3.mb-3
+                    label.form-label(for='p4') Paragraph 4:
+                    input#p4.form-control(name="p4" value=`${p4}`)
+
+            button.btn.btn-primary(type='submit') Submit

@@ -1,0 +1,89 @@
+
+
+.admin__tableContainer {
+    margin: 2rem 50px;
+}
+    .admin__tableContainer h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .admin__tableBox {
+    }
+
+        .admin__tableBox h1 {
+        margin: 0px auto;
+        }
+
+        .admin__tableBox thead tr {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .admin__tableBox td {
+            text-align: center !important;
+            vertical-align: middle;
+        }
+
+        .admin__tableBox th {
+            vertical-align: middle !important;
+            text-align: center;
+        }
+
+
+
+            .admin__imagesBox{
+
+                /* justify-content: center; */
+            }
+
+                .admin__imageBox {
+                    display: inherit;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: .5rem 1.5rem;
+                }
+
+
+
+                    .admin__imageBox img {
+                        margin-bottom: .5rem;
+                    }
+
+                    .admin__imageBox div:last-child {
+                        margin-top: .3rem;
+                        color: #dc3545;
+                        /* font-weight: bold; */
+                        font-size: 14px;
+                        width: max-content;
+                    }
+
+
+                .admin__appleWatchModel {
+                    width: max-content;
+                }
+
+            .admin__appleWatchPriceBox{
+            }
+                .admin__appleWatchPrice {
+                    width: max-content;
+                    /* color: #dc3545; */
+                    /* font-weight: bold; */
+                    font-size: 14px;
+                }
+
+            .admin__tableButtonBox {
+
+            }
+                .admin__tableButtonBox button {
+                    margin: .3rem auto;
+                    display: block;
+                }
+
+
+        .admin__image {
+            vertical-align: middle !important;
+        }
+            
+            .admin__tableBox img {
+                height: 80px;
+            }

@@ -1,0 +1,200 @@
+extends ../layouts/adminLayout
+
+block content
+    link(rel="stylesheet", href="/styles/Admin.css")
+
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/')
+            .admin__NavLogo
+
+        .collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item.active
+                    a(href="/admin").btn.nav-link Danh sách
+                li.nav-item
+                    a(href="/admin/addProduct").btn.nav-link Thêm sản phẩm
+                li.nav-item
+                    a(href="/admin/orders").btn.nav-link Đơn hàng
+
+            //- form.form-inline.my-2.my-lg-0
+            //-     input.form-control.mr-sm-2(type='search' placeholder='Nhập tên sản phẩm' aria-label='Tìm kiếm')
+            //-     button.btn.btn-outline-light(type='submit') Tìm kiếm
+
+
+
+    .container.mt-3.d-flex
+        
+        #TablesButton.btn-group
+            button.btn.btn-outline-danger.shadow-none.text-light.active Adobe
+            button.btn.btn-outline-danger.shadow-none.text-dark Office
+            button.btn.btn-outline-danger.shadow-none.text-dark Security
+            button.btn.btn-outline-danger.shadow-none.text-dark Window
+            button.btn.btn-outline-danger.shadow-none.text-dark Google
+            button.btn.btn-outline-danger.shadow-none.text-dark Cloud
+
+
+
+    .admin__tableContainer
+        h1 Adobe
+
+        table#AccessoriesTableBox.table.table-bordered.admin__tableBox
+            thead 
+                tr
+                    th Tên
+                    //- th Dòng
+                    th Ảnh
+                    th Giá
+                    th Chỉnh sửa
+            tbody 
+                each product in AdobeProducts
+                    tr(id=`${product._id}`) 
+                        td= product.name
+                        //- td= product.category
+                        td.admin__imagesBox
+                            each img in product.img
+                                img(src=img)
+                        td= product.price
+                                
+
+                        td.admin__tableButtonBox
+                            a.btn.btn-link(href=`admin/updateProduct/${product._id}`) Sửa 
+                            button.btn.btn-link(onclick=`deleteProduct("${product._id}")`) Xoá
+
+
+    .admin__tableContainer.d-none
+        h1 Office
+
+        table#AccessoriesTableBox.table.table-bordered.admin__tableBox
+            thead 
+                tr 
+                    th Tên
+                    //- th Dòng
+                    th Ảnh
+                    th Giá
+                    th Chỉnh sửa
+            tbody 
+                each product in OfficeProducts
+                    tr(id=`${product._id}`)
+                        td= product.name
+                        //- td= product.category
+                        td.admin__imagesBox
+                            each img in product.img
+                                img(src=img)
+                        td= product.price
+                                
+
+                        td.admin__tableButtonBox
+                            a.btn.btn-link(href=`admin/updateProduct/${product._id}`) Sửa 
+                            button.btn.btn-link(onclick=`deleteProduct("${product._id}")`) Xoá
+
+
+    .admin__tableContainer.d-none
+        h1 Security
+
+        table#AccessoriesTableBox.table.table-bordered.admin__tableBox
+            thead 
+                tr
+                    th Tên
+                    //- th Dòng
+                    th Ảnh
+                    th Giá
+                    th Chỉnh sửa
+            tbody 
+                each product in SecurityProducts
+                    tr(id=`${product._id}`)
+                        td= product.name
+                        //- td= product.category
+                        td.admin__imagesBox
+                            each img in product.img
+                                img(src=img)
+                        td= product.price
+                                
+
+                        td.admin__tableButtonBox
+                            a.btn.btn-link(href=`admin/updateProduct/${product._id}`) Sửa 
+                            button.btn.btn-link(onclick=`deleteProduct("${product._id}")`) Xoá
+
+
+    .admin__tableContainer.d-none
+        h1 Window
+
+        table#AccessoriesTableBox.table.table-bordered.admin__tableBox
+            thead 
+                tr
+                    th Tên
+                    //- th Dòng
+                    th Ảnh
+                    th Giá
+                    th Chỉnh sửa
+            tbody 
+                each product in WindowProducts
+                    tr(id=`${product._id}`)
+                        td= product.name
+                        //- td= product.category
+                        td.admin__imagesBox
+                            each img in product.img
+                                img(src=img)
+                        td= product.price
+                                
+
+                        td.admin__tableButtonBox
+                            a.btn.btn-link(href=`admin/updateProduct/${product._id}`) Sửa 
+                            button.btn.btn-link(onclick=`deleteProduct("${product._id}")`) Xoá
+
+
+    .admin__tableContainer.d-none
+        h1 Google
+
+        table#AccessoriesTableBox.table.table-bordered.admin__tableBox
+            thead 
+                tr
+                    th Tên
+                    //- th Dòng
+                    th Ảnh
+                    th Giá
+                    th Chỉnh sửa
+            tbody 
+                each product in GoogleProducts
+                    tr(id=`${product._id}`)
+                        td= product.name
+                        //- td= product.category
+                        td.admin__imagesBox
+                            each img in product.img
+                                img(src=img)
+                        td= product.price
+                                
+
+                        td.admin__tableButtonBox
+                            a.btn.btn-link(href=`admin/updateProduct/${product._id}`) Sửa 
+                            button.btn.btn-link(onclick=`deleteProduct("${product._id}")`) Xoá
+
+
+    .admin__tableContainer.d-none
+        h1 Cloud
+
+        table#AccessoriesTableBox.table.table-bordered.admin__tableBox
+            thead 
+                tr
+                    th Tên
+                    //- th Dòng
+                    th Ảnh
+                    th Giá
+                    th Chỉnh sửa
+            tbody 
+                each product in CloudProducts
+                    tr(id=`${product._id}`)
+                        td= product.name
+                        //- td= product.category
+                        td.admin__imagesBox
+                            each img in product.img
+                                img(src=img)
+                        td= product.price
+                                
+
+                            
+                        td.admin__tableButtonBox
+                            a.btn.btn-link(href=`admin/updateProduct/${product._id}`) Sửa 
+                            button.btn.btn-link(onclick=`deleteProduct("${product._id}")`) Xoá
+    //- Loading cart
+    script(src="/javascript/admin.page.js")
+

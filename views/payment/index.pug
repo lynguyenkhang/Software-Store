@@ -1,0 +1,59 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/Payment.css")
+
+    main.payment
+        //- .payment__storeName Đức Anh Store
+        if(errors)
+                .payment__errorsBox
+                    ul.payment__errors
+                        each error in errors
+                            li(onClick="hideError(this)")
+                                span=error
+                                .payment__closeErrorIcon
+
+
+
+
+        form.payment__form(method="post")
+            .payment__receiver
+                p Thông tin nhận hàng
+                input(value=`${fullName ? fullName : ''}` name="fullName" placeholder="Họ và tên người nhận"  type="text")
+                input(value=`${phoneNumber ? phoneNumber : ''}` name="phoneNumber" placeholder="Số điện thoại"  type="number")
+                input(value=`${email ? email : ''}` name="email" placeholder="Email"  type="email")
+                input(value=`${address ? address : ''}` name="address" placeholder="Địa chỉ nhận hàng"  type="text")
+                textarea(value=`${note ? note : ''}` name="note", rows="5" placeholder="Ghi chú về đơn hàng, ví dụ: Thời gian nhận được hàng")
+
+            .payment__methods
+                p.payment__methodsTitle Phương thức
+                .payment__methodsBox
+                    label.payment__methodChoose Thanh toán khi nhận hàng COD
+                        input(type="radio", checked="checked", name="payment_method_COD")
+                        span.checkmark
+                        span.material-icons.payment-icons local_atm
+                
+                    label.payment__methodChoose Thanh toán qua ngân hàng 
+                        input(type="radio", name="payment_method_bank")
+                        span.checkmark
+                        span.material-icons.payment-icons account_balance
+                    .show_method2_description
+                        p Vietcombank: 1017256634
+                        p Nam Á Bank : 71807 1121399999
+                        p MB Bank : 276 0101 33 8888
+                        p Chủ TK: Lê Đức Anh
+
+
+                .payment__totalPriceBox
+                    .payment__totalPriceTitle Tổng tiền
+                        span  (Chưa tính sản phẩm có giá liên hệ)
+                    if sessionCart.totalPriceStr
+                        .payment__totalPrice= sessionCart.totalPriceStr
+                    else
+                        .payment__totalPrice 0 đ
+
+                button.payment__buttonsBox(type="submit") Hoàn tất thanh toán
+
+
+
+    script(src="/javascript/payment.page.js")

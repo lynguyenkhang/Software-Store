@@ -1,0 +1,28 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    background-color: #fff;
+    position: relative;
+}
+
+.Telephone{
+    width: 55;
+    height: 55px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 30px;
+    display: block;
+    background-image: url('/images/telephone.png');
+    background-size: cover;
+    animation: phoneRang 4s infinite;
+    z-index: 99;
+}
+
+@keyframes phoneRang {
+    0% { transform: scale(.8); opacity: 1;}
+    50% { transform: scale(1); opacity: .5;}
+    100% { transform: scale(.8); opacity: 1;}
+}

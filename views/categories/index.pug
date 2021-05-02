@@ -1,0 +1,40 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/Categories.css")
+
+    //- p.categoriesName Models
+    main.categories
+        .categoriesPath(id="pathsBox")
+            a(href="/") Trang chủ
+            span.material-icons.categoriesNextIcon navigate_next
+            a(href=`/categories/${categoryName}`)
+                if(categoryName === "Security")
+                    span Bảo Mật
+                else if(categoryName === "Adobe")
+                    span Adobe
+                else if(categoryName === "Office")
+                    span Office
+                else if(categoryName === "Window")
+                    span Window
+                else if(categoryName === "Google")
+                    span Google 
+                else 
+                    span Cloud
+
+        .categoriesTitleBox
+                span Các sản phẩm 
+                if(categoryName === "Security")
+                    span Bảo Mật
+                else 
+                    span=categoryName
+
+        .categoriesBox
+            each product in Products
+                a(href=`/products/${categoryName}/${product.name}`).categories__item
+                    img.categories__image(src=product.img[0] alt=product.name)
+                    .categories__shadow
+                    .categories__name=product.name
+                    .categories__price=product.price
+
+        

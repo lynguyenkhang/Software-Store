@@ -1,0 +1,68 @@
+extends ../layouts/adminLayout
+block content
+    link(rel="stylesheet", href="/styles/OrdersAdmin.css")
+
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/')
+            .admin__NavLogo
+
+        .collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    a(href="/admin").btn.nav-link Danh sách
+                li.nav-item
+                    a(href="/admin/addProduct").btn.nav-link Thêm sản phẩm
+                li.nav-item.active
+                    a(href="/admin/orders").btn.nav-link Đơn hàng
+
+            //- form.form-inline.my-2.my-lg-0
+            //-     input.form-control.mr-sm-2(type='search' placeholder='Nhập tên sản phẩm' aria-label='Tìm kiếm')
+
+
+    .OrdersAdmin__tableContainer
+
+        .OrdersAmin__alert.alert.alert-success.d-none
+            span Đơn hàng avsc đã cập nhật thành công
+            .OrdersAdmin__closeErrorIcon
+
+
+        h1 Đơn hàng
+        table.table.table-bordered.OrdersAdmin__tableBox
+            thead 
+                tr
+                    th ID
+                    th Ngày
+                    th Tình trạng
+                    th Tổng tiền
+                    th Thanh toán
+                    th Chức năng
+            tbody 
+                each order in Orders
+                    tr(id=order.orderID) 
+                        td.orderIDBox= order.orderID
+                        td= order.start_at 
+                        td
+                            select.chosenStatusBox(name="status")
+                                if(order.status === "Chưa giao")
+                                    option(value="Chưa giao" selected) Chưa giao
+                                else 
+                                    option(value="Chưa giao" ) Chưa giao
+                                
+                                if(order.status === "Đang giao")
+                                    option(value="Đang giao" selected) Đang giao
+                                else 
+                                    option(value="Đang giao" ) Đang giao
+
+                                if(order.status === "Hoàn thành")
+                                    option(value="Hoàn thành" selected) Hoàn thành
+                                else 
+                                    option(value="Hoàn thành" ) Hoàn thành
+                            button.updateStatusBtn.btn.btn-primary(style="margin-left: 24px" type="submit") Cập nhật
+
+                        td= order.totalPrice
+                        td= order.payment
+                        td
+                            a(href=`/admin/details/${order.orderID}`).btn.btn-link Xem
+                            button(onClick=`deleteOrder("${order.orderID}")`).btn.btn-link Xoá
+
+    script(src="/javascript/ordersAdmin.page.js")

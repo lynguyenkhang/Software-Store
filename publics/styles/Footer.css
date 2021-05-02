@@ -1,0 +1,173 @@
+.Footer{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+    .Footer__topBox{
+        background-color: black;
+        display: flex;
+        border-bottom: 1px solid #555;
+        padding-bottom: 20px;
+    }
+
+
+        .Footer__logo{
+            background-image: url('../imgs/logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100%;
+        }
+
+
+        .Footer__introduction{
+            color: #888;
+            font-size: 13px;
+            line-height: 18px;
+            letter-spacing: 1px;
+        }
+
+
+    .Footer__bottomBox{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 20px;
+    }
+        .Footer__address{
+            margin-bottom: 17px;
+        }
+            .Footer__addressTitle{
+                color: #eee;
+                font-size: 14px;
+            }
+            .Footer__addressLine{
+                color: #555;
+                font-size: 14px;
+            }
+
+        .Footer__policies{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+            .Footer__policiesTitle{
+                color: #eee;
+                font-size: 14px;
+                margin-bottom: 7px;
+            }
+            .Footer__policiesLink{
+                font-size: 14px;
+                color: #555 !important;
+                transition: all .3s;
+                text-decoration: none;
+                margin: 7px  0px;
+            }
+            .Footer__policiesLink:hover {
+                color: #ddd !important;
+            }
+
+
+        .Footer__fanPage{
+            width: max-content;
+        }
+            .Footer__fanPageTitle{
+                color: #eee;
+                font-size: 14px;
+                margin-bottom: 14px;
+            }
+
+            .Footer__map{
+                position:relative;
+                text-align:right;
+                margin-top: 21px;
+            }
+
+                .gmap_canvas {
+                    overflow:hidden;
+                    background:none!important;
+                    height:175px;
+                    width:300px;
+                }
+
+
+
+
+@media(max-width: 767px){
+    .Footer{
+        padding: 0px 16px 34px 16px;
+    }
+    .Footer__topBox{
+        flex-direction: column;
+    }
+
+    .Footer__logo{
+        height: 89px
+    }
+
+    .Footer__bottomBox{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media (min-width: 768px){
+    .Footer {
+        padding: 21px;
+    }
+
+    .Footer__topBox {
+        flex-direction: row;
+        width: 780px;
+    }
+
+    .Footer__logo{
+        width: 233px;
+        height: 144px;
+    }
+    .Footer__introduction{
+        flex: 1;
+    }
+
+
+    .Footer__bottomBox{
+        width: 780px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .Footer__fanPage, .gmap_canvas{
+        width: 300px !important;
+    }
+        .Footer__fanPage iframe {
+            width: 300px !important;
+        }
+
+}
+
+@media (min-width: 992px){
+    .Footer{
+        padding: 34px;
+    }
+    .Footer__topBox, .Footer__bottomBox{
+        width: 970px;
+    }
+
+    .Footer__logo{
+        /* width: 233px; */
+        height: 130px;
+    }
+
+    .Footer__fanPage, .gmap_canvas{
+        /* width: 370px !important; */
+    }
+}
+
+@media (min-width: 1200px){
+    .Footer__topBox, .Footer__bottomBox{
+        width: 1170px;
+    }
+}

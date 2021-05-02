@@ -1,0 +1,50 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/Payment__confirm.css")
+    main.confirm
+        .confirm__confirmContainer
+            .confirm__confirmBox
+                .confirm__title 
+                    .confirm__sucessIcon
+                    span Đơn hàng của bạn đặt thành công
+                .confirm__detailsBox
+                    .confirm__subBox
+                        .confirm__inforBox
+                            span Mã đơn hàng:
+                            span=order.orderID
+                        .confirm__inforBox
+                            span Tổng cộng 
+                                span.confirm__totalPriceNote (chưa tính sản phẩm có giá liên hệ):
+                            span=order.totalPriceStr
+
+                    .confirm__subBox
+                        .confirm__inforBox
+                            span Ngày:
+                            span=order.date
+                        .confirm__inforBox
+                            span Phương thức thanh toán:
+                            span=`${order.paymentMethod === 'COD' ? 'Thanh toán khi nhận hàng COD' : 'Thanh toán qua ngân hàng'}`
+
+                .confirm__noteBox
+                    span Ghi chú: 
+                    span=order.note
+
+                a.confirm__continueBtn(href="/") Tiếp tục mua sắm 
+        
+
+        .confirm__cart
+            .confirm__cartBox
+                .confirm__cartTitle
+                    .confirm__cartIcon
+                    span Danh sách sản phẩm bạn đã mua
+                ul.confirm__cartPageContent
+                    each product in cart
+                        li
+                            img.confirm__cartProductImgBox(src=product.img[0]).
+
+                            .confirm__cartProductInfo
+                                a(href=`/products/${product.category}/${product.name}`)=product.name
+                                span=product.price
+                            .confirm__cartVolumeBox
+                                .confirm__cartVolume=product.volume

@@ -1,0 +1,115 @@
+.products__describe {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  margin-bottom: 30px;
+}
+  
+  .products__thongso {
+    width: 100%;
+    height: 300px;
+    /* background-color: #f5f5f5; */
+  }
+  
+  .products__sideBarBox {
+      max-height: max-content;
+      width: 100%;
+      margin: 0px auto 30px auto;
+    }
+
+    .products__sideBarTitle{
+        border-bottom: 1px solid #eee;
+    }
+      .products__sideBarTitle span {
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: 2px solid #0075ff;
+        padding: 5px 10px;
+      }
+
+
+
+    .products__sideBarContent {
+      overflow: hidden;
+      height: 300px;
+      margin-bottom: 8px;
+      position: relative;
+      transition: all .8s;
+    }
+        .products__sideBarTable {
+          border-spacing: 30px 15px
+        }
+
+        .products__sideBarContent li {
+          margin: 5px 0px;
+        }
+
+    .products__blurBar { 
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      bottom: 0px;
+      margin: 0;
+      background-image: linear-gradient(to bottom, transparent, white);
+    }
+
+    .products__readMoreBtn {
+        width: max-content;
+        border: 1px solid #0075ff !important;
+        color: #0075ff;
+        text-decoration: none !important;
+        padding: 5px 10px !important;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        margin: 0px auto;  
+        cursor: pointer; 
+    }
+    .products__readMoreBtn .material-icons {
+      font-size: 18px !important;
+      margin-right: 5px;
+    }
+
+
+
+
+                
+@media (min-width: 550px){
+  
+}
+
+@media (min-width: 768px){
+  /* .products__describe {
+    flex-direction: row-reverse !important;
+  }
+    .products__thongso{
+      width: 300px !important;
+      padding-left: 20px !important;
+    } */
+
+    /* .products__sideBarContent p:first-child{
+      padding: 0px 20px;
+      border-right: 1px solid #eee;
+    } */
+}
+
+@media (min-width: 992px){
+
+
+}
+
+@media (min-width: 1200px){
+  .products__thongso{
+    width: 400px !important;
+  }
+}
+
+
+
+tr td:first-child {
+  font-weight: bold;
+}

@@ -1,0 +1,87 @@
+extends ../layouts/adminLayout
+block content
+    link(rel="stylesheet", href="/styles/OrdersAdmin.css")
+
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/')
+            .admin__NavLogo
+
+        .collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    a(href="/admin").btn.nav-link Danh sách
+                li.nav-item
+                    a(href="/admin/addProduct").btn.nav-link Thêm sản phẩm
+                li.nav-item.active
+                    a(href="/admin/orders").btn.nav-link Đơn hàng
+
+            //- form.form-inline.my-2.my-lg-0
+            //-     input.form-control.mr-sm-2(type='search' placeholder='Nhập tên sản phẩm' aria-label='Tìm kiếm')
+            //-     button.btn.btn-outline-light(type='submit') Tìm kiếm
+
+
+    .OrdersAdmin__tableContainer
+        h1 Chi tiết đơn hàng
+
+
+    div(style='margin: 30px 20px; display: flex; justify-content: center;')
+        div(style='border: 1px solid #ddd; border-radius: 5px; width: 100%; max-width: 450px !important;')
+            div(style='display: flex;align-items: center;border-bottom: 1px solid #ddd;padding: 8px 16px;background-color: #eee;border-radius: 5px 5px 0px 0px; font-size: 15px;')
+                span(style='font-weight:bold') Thông tin người nhận
+            ul(style='list-style-type: none !important; padding: 0px; margin: 10px;')
+                li(style='margin-top: 3px;')
+                    span(style="font-weight: bold;") Họ và tên:
+                    span= ` ${Order.user.fullName}`
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Số điện thoại:
+                    span= ` ${Order.user.phoneNumber}`
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Email:
+                    span= ` ${Order.user.email}`
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Địa chỉ:
+                    span= ` ${Order.user.address}`
+
+
+
+    div(style='margin: 30px 20px; display: flex; justify-content: center;')
+        div(style='border: 1px solid #ddd; border-radius: 5px; width: 100%; max-width: 450px !important;')
+            div(style='display: flex;align-items: center;border-bottom: 1px solid #ddd;padding: 8px 16px;background-color: #eee;border-radius: 5px 5px 0px 0px; font-size: 15px;')
+                span(style='font-weight:bold') Thông tin đơn hàng
+            ul(style='list-style-type: none !important; padding: 0px; margin: 10px;')
+                li(style='margin-top: 3px;')
+                    span(style="font-weight: bold;") Mã đơn:
+                    span= ` ${Order.orderID}`
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Ngày:
+                    span= ` ${Order.start_at}`
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Tổng cộng:
+                    span= ` ${Order.totalPrice}`
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Phương thức thanh toán:
+                    span= ` ${Order.payment}`
+
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Ghi chú:
+                    span= ` ${Order.note}`
+
+
+                li(style='margin-top: 3px;') 
+                    span(style="font-weight: bold;") Tình trạng:
+                    span= ` ${Order.status}`
+
+
+
+    div(style='margin: 30px 20px; display: flex; justify-content: center;')
+        div(style='border: 1px solid #ddd; border-radius: 5px; width: 100%; max-width: 450px !important;')
+            div(style='display: flex;align-items: center;border-bottom: 1px solid #ddd;padding: 8px 16px;background-color: #eee;border-radius: 5px 5px 0px 0px; font-size: 15px;')
+                span(style='font-weight:bold') Danh sách sản phẩm
+            ul(style='list-style-type: none !important; padding: 0px; margin: 10px 0px;')
+                each product in Order.cart
+                    li(style='border-bottom: 1px solid #ddd;display: flex;padding: 15px 10px;')
+                        img(style='width: 80px;height: 80px;' src=`${product.img}`)
+                        div(style='margin: 0px 10px; font-size: 14px !important;')
+                            div(style='text-decoration: none !important;color: black !important;word-wrap: break-word !important;')= `${product.name}`
+                            div(style='margin-top: 3px;')= `Đơn giá: ${product.price}`
+                            div(style='margin-top: 3px;')= `Số lượng: ${product.volume}`

@@ -1,0 +1,50 @@
+.OrdersAdmin__tableContainer
+{
+    margin: 2rem 50px;
+}
+
+.OrdersAdmin__tableContainer h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.OrdersAdmin__tableBox thead tr {
+    background-color: #dc3545;
+    color: #fff;
+}
+.OrdersAdmin__tableBox td {
+    text-align: center !important;
+    vertical-align: middle;
+}
+
+.OrdersAdmin__tableBox th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+.OrdersAdmin__tableBox .btn-primary {
+    margin-left: 24px;
+    font-size: 12px;
+    padding: 3px 18px;
+}
+
+.OrdersAdmin__tableBox form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.OrdersAdmin__closeErrorIcon{
+    margin-left: 20px;
+    width: 10px;
+    height: 10px;
+    background-image: url('/images/brownClose.png');
+    background-size: cover;
+}
+
+.OrdersAmin__alert {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    transition: all 250ms;
+}

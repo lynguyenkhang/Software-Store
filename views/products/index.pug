@@ -1,0 +1,71 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/Products.css")
+    link(rel="stylesheet", href="/styles/ProductsMacbook.css")
+    link(rel="stylesheet", href="/styles/Products__describe.css")
+
+    link(rel="stylesheet", href="/javascript/swiper/swiper.min.css")
+    script(src="/javascript/swiper/swiper.min.js")
+
+    main.products
+        .products__path(id="pathsBox")
+            a(href="/") Trang chủ
+            span.material-icons.products__pathNextIcon navigate_next
+            a(href=`/categories/${Product.category}`)=Product.category
+            span.material-icons.products__pathNextIcon navigate_next
+            a(href=`./${productsName}`)=Product.name
+
+        .products__inforBox
+
+
+            //- ------------------------------------------------------------------------------------------------------------------------------------------------
+
+            .products__swiper
+                // Swiper
+                .products__galleryTop.swiper-container.gallery-top
+                    .products__galleryTopSwiperWrapper.swiper-wrapper
+                        each image in Product.img
+                            .products__galleryTopSwiperSlide.swiper-slide(style=`background-image:url(${image})` alt=Product.name)
+
+                    // Add Arrows
+                    .product__galleryTopNextButton.swiper-button-next.swiper-button-blue
+                    .product__galleryTopBackButton.swiper-button-prev.swiper-button-blue
+            
+                .products__galleryThumbs.swiper-container.gallery-thumbs
+                    .products__galleryThumbsSwiperWrapper.swiper-wrapper
+                        each image in Product.img
+                            .products__galleryThumbsSwiperSlide.swiper-slide(style=`background-image:url(${image})` alt=Product.name)
+
+            .products__buyBox
+                .products__nameProduct=Product.name
+                .products__volumeBox
+                    span.material-icons(onClick="changeVolume('subtract')") remove
+                    span(id='products__volume') 1
+                    span.material-icons(onClick="changeVolume('add')") add
+                
+                .products__priceProduct.products__showPriceProduct=Product.price
+
+                .products__buttonsBox
+                    .products__buyButton(onClick=`buyProduct("${Product.category}","${Product._id}")`) MUA HÀNG
+        //- ------------------------------------------------------------------------------------------------------------------------------------------------
+
+        .products__describe
+            .products__sideBarBox
+                .products__sideBarTitle
+                    span Mô tả sản phẩm
+                .products__sideBarContent
+
+                    p.products__sideBarContentParagraph !{Product.mtsp}
+
+
+
+        //- div(class="fb-comments" data-width="2000"  data-numposts="5" data-href=`http://localhost:5000/products/${categoriesName}/${modelsName}/${productsName}`)
+        div(class="fb-comments" data-width="100%"  data-numposts="5" data-hrefs=`https://abcstore.com/products/${categoriesName}/${productsName}`)
+
+
+
+    script(src="/javascript/products.page.js")
+    script(src="/javascript/swiper/swiper.js")
+    script(src="/javascript/swiper/swiper_macbook.js")
+

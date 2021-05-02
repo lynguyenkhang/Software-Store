@@ -1,0 +1,157 @@
+html
+    head
+        title ABC Software Store
+        meta(name="viewport" content="width=device-width, initial-scale=1.0 height=device-height")
+        meta(name='description' content=meta)
+        link(rel="icon" href="/imgs/logo.png")
+
+        link(rel="stylesheet", href="/styles/common.css")
+        link(rel="stylesheet", href="/styles/Navigation.css")
+        link(rel="stylesheet", href="/styles/Footer.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        //- AJAX
+        script(src="https://unpkg.com/axios/dist/axios.min.js")
+
+
+    body
+
+
+        // Load Facebook SDK for JavaScript
+        #fb-root
+        script.
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v10.0'
+                });
+            };
+            
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+        // Your Chat Plugin code
+        .fb-customerchat(attribution='setup_tool' page_id='102736758631810')
+
+
+
+
+
+        a.Telephone(href="tel:0813381234")
+
+        .OverlayBackground
+        Navigation.Navigation
+            .Navigation__box
+                a(href="/").Navigation__logo
+                .Navigation__links
+                    a(href="/categories/Adobe") Adobe
+                    a(href="/categories/Office") Office
+                    a(href="/categories/Security") Bảo mật
+                    a(href="/categories/Window") Window
+                    a(href="/categories/Google") Google
+                    a(href="/categories/Cloud") Cloud
+                    .Navigation__iconCart(onClick=`showCartPage()`)
+                        if sessionCart.totalQuantity
+                            .Navigation__volumeCart= sessionCart.totalQuantity
+                        else
+                            .Navigation__volumeCart 0
+
+
+                .Navigation__hiddenIcons
+                    .Navigation__iconMenu
+                    .Navigation__iconCart(onClick=`showCartPage()`)
+                        if sessionCart.totalQuantity
+                            .Navigation__volumeCart= sessionCart.totalQuantity
+                        else
+                            .Navigation__volumeCart 0
+
+                
+                .Navigation__hiddenMenu
+                    .Navigation__iconClose
+                    .Navigation__hiddenLinks
+                        a(href="/categories/Adobe") Adobe
+                        a(href="/categories/Office") Office
+                        a(href="/categories/Security") Bảo mật
+                        a(href="/categories/Window") Window
+                        a(href="/categories/Google") Google
+                        a(href="/categories/Cloud") Cloud
+
+
+                .Navigation__cartPage
+                    .Navigation__cartPageTitleBox
+                        p Giỏ hàng của bạn
+                        .Navigation__iconCloseCart
+                    
+
+
+                    ul.Navigation__cartPageContent
+                        if sessionCart.editedCart
+                            each product, index in sessionCart.editedCart
+                                li
+                                    .Navigation__cartProductImgBox
+                                        img.Navigation__cartProductImg(src=product.img[0])
+                                        div(onClick=`removeProduct(${index})`) Xoá
+                                    
+                                    .Navigation__cartProductInfo
+                                        a(href=`/products/${product.category}/${product.name}`)= product.name
+                                        //- span= product.attribute
+                                        p= product.price
+                                    .Navigation__cartVolumeBox
+                                        span(onClick=`changeVolumeInCart('${index}', 'descrease')`).material-icons remove
+                                        span.Navigation__cartVolume= product.volume
+                                        span(onClick=`changeVolumeInCart('${index}', 'increase')`).material-icons add
+                                
+                    .Navigation__cartPageTotalPriceBox
+                        div
+                            span TỔNG 
+                            span.Navigation__cartPageTotalPriceNote (chưa tính sản phẩm có giá liên hệ):
+                        if sessionCart.totalPriceStr
+                            span.Navigation__cartPageTotalPrice= sessionCart.totalPriceStr
+                        else
+                            span.Navigation__cartPageTotalPrice 0 đ
+
+                        
+                    .Navigation__buttonsBox
+                        a(href='/thanhtoan') Thanh toán
+
+
+        block content
+
+        Footer.Footer
+            .Footer__topBox
+                .Footer__logo
+                .Footer__introduction Được thiết lập từ năm 2013, Software ABC được ghi nhận là một trong những địa chỉ bán phần mềm tin cậy và đem đến dịch vụ tốt nhất đến với khách hàng. Với hơn 5 năm kinh nghiệm về lĩnh vực kinh doanh về phần mềm, nay Software ABC đã trở thành một trong những cửa hàng chuyên cung cấp các phần mềm và dịch vụ tốt nhất. <br /><br /> Chất lượng sản phẩm, hậu mãi khách hàng luôn là tiêu chí hàng đầu của Software ABC.
+            .Footer__bottomBox
+                .Footer__address
+                    .Footer__addressTitle Software ABC
+                    p.Footer__addressLine  11, Pasteur, Quận 1
+                    p.Footer__addressLine - Số điện thoại: 0386555444
+                    p.Footer__addressLine - Website: softwareabc.vn
+                    p.Footer__addressLine - Email: softwareabc@gmail.com
+                .Footer__policies
+                    .Footer__policiesTitle QUY ĐỊNH & CHÍNH SÁCH
+                    a.Footer__policiesLink(href="#no") - Quy định đổi trả hàng hoá
+                    a.Footer__policiesLink(href="#no") - Quy định bảo hành hàng mới
+                    a.Footer__policiesLink(href="#no") - Quy định bảo hành hàng cũ
+                    a.Footer__policiesLink(href="#no") - Chính sách bảo mật
+                .Footer__fanPage
+                    .Footer__fanPageTitle FANPAGE
+
+                    .Footer__fbBox.fb-page(data-href='https://www.facebook.com/abcsoftware11', data-tabs='timeline', data-width='300', data-height='175', data-small-header='false', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
+                        blockquote.fb-xfbml-parse-ignore(cite='https://www.facebook.com/abcsoftware11')
+                            a(href='https://www.facebook.com/abcsoftware11') ABC Software
+
+                    .Footer__map
+                        iframe.gmap_canvas#gmap_canvas(width='300', height='175', src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDnBhVD2fuEZUQVHtWDCv02E4YzR7z3yUQ&q=11 Pastuer, Phường 5, Quận 1, Thành phố Hồ Chí Minh, Vietnam")
+
+
+
+
+    //- Loading cart
+    script(src="/javascript/functions.js")
+    script(src="/javascript/cart.js")
+    script(src="/javascript/hiddenCart.js")

@@ -1,0 +1,206 @@
+extends ./layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/Home.css")
+    link(rel="stylesheet", href="/styles/Home__categoryBox.css")
+    link(rel="stylesheet", href="/styles/Home__slider.css")
+    //- link(rel="stylesheet", href="/styles/Categoriess.css")
+
+
+    link(rel="stylesheet", href="/javascript/swiper/swiper.min.css")
+    script(src="/javascript/swiper/swiper.min.js")
+
+    main
+        .Home__banner
+            // Additional required wrapper
+            .Home__bannerSwiperWrapper.swiper-wrapper
+
+                //- // Slides 
+                //- each Banner in Banners
+                
+                a.swiper-slide(href="/products/Adobe/Illustrator%20CC%202020")
+                    img(src="/imgs/banner_1.png" alt=`banner 1`) 
+                a.swiper-slide(href="/products/Adobe/Photoshop%20CC%202020")
+                    img(src="/imgs/banner_2.png" alt=`banner 2`) 
+                a.swiper-slide(href="/products/Adobe/Premiere%20Pro")
+                    img(src="/imgs/banner_3.png" alt=`banner 3`) 
+                a.swiper-slide(href="/categories/Office")
+                    img(src="/imgs/banner_4.png" alt=`banner 4`) 
+                a.swiper-slide(href="/categories/Security")
+                    img(src="/imgs/banner_5.png" alt=`banner 5`) 
+
+
+                //- img.swiper-slide(src="/images/watch.png")
+                //- img.swiper-slide(src="/images/airpod.png")
+            // If we need pagination
+            .Home__bannerSwiperPagination.swiper-pagination
+            // If we need navigation buttons
+            //- .swiper-button-prev
+            //- .swiper-button-next
+
+        .Home__category
+            .Home__categoryTitle Sản phẩm
+            .Home__categoryBox
+            
+                a(href=`/categories/Adobe`).Home__categoryBoxItem
+                    img.Home__categoryBoxImage(src="/imgs/category_adobe.png" alt=`ảnh các sản phẩm về Adobe`)
+                    .Home__categoryBoxShadow
+                    .Home__categoryBoxName Adobe
+
+                a(href=`/categories/Office`).Home__categoryBoxItem
+                    img.Home__categoryBoxImage(src="/imgs/category_office.png" alt=`ảnh các sản phẩm về Office`)
+                    .Home__categoryBoxShadow
+                    .Home__categoryBoxName Office
+
+                a(href=`/categories/Security`).Home__categoryBoxItem
+                    img.Home__categoryBoxImage(src="/imgs/category_security.png" alt=`ảnh các sản phẩm về bảo mật`)
+                    .Home__categoryBoxShadow
+                    .Home__categoryBoxName Bảo mật
+
+                a(href=`/categories/Window`).Home__categoryBoxItem
+                    img.Home__categoryBoxImage(src="/imgs/category_window.png" alt=`ảnh các sản phẩm về Window`)
+                    .Home__categoryBoxShadow
+                    .Home__categoryBoxName Window
+
+                a(href=`/categories/Google`).Home__categoryBoxItem
+                    img.Home__categoryBoxImage(src="/imgs/category_google.png" alt=`ảnh các sản phẩm về Google`)
+                    .Home__categoryBoxShadow
+                    .Home__categoryBoxName Google
+
+                a(href=`/categories/Cloud`).Home__categoryBoxItem
+                    img.Home__categoryBoxImage(src="/imgs/category_cloud.png" alt=`ảnh các sản phẩm về Cloud`)
+                    .Home__categoryBoxShadow
+                    .Home__categoryBoxName Cloud
+
+
+        .Home__slider
+            a(href="/categories/Adobe").Home__sliderTitleBox
+                .Home__sliderLeftTitleBox
+                    //- .Home__sliderIcon.Home__slideriPhoneIcon
+                    .Home__sliderTitle Adobe
+                .Home__sliderRightTitleBox
+                    .Home__sliderSeeAll Xem tất cả
+                    .Home__sliderRightArrow
+            //- swiper
+            ul.Home__sliderSwiperContainer
+                .swiper-wrapper
+                    each product in AdobeProducts
+                        li.Home__sliderSwiperSlide.swiper-slide
+                                a(href=`/products/Adobe/${product.name}`).Home__sliderProductImageBox
+                                    img(src=product.img[0] alt=product.name)
+                                .Home__sliderProductContentBox
+                                    a(href=`/products/Adobe/${product.name}`).Home__sliderProductName.card-title= product.name
+                                    a(href=`/products/Adobe/${product.name}`).Home__sliderProductPrice= product.price
+                //- Add pagination
+                .Home__sliderSwiperPagination.swiper-pagination
+
+        .Home__slider
+            a(href="/categories/Office").Home__sliderTitleBox
+                .Home__sliderLeftTitleBox
+                    //- .Home__sliderIcon.Home__slideriPhoneIcon
+                    .Home__sliderTitle Office
+                .Home__sliderRightTitleBox
+                    .Home__sliderSeeAll Xem tất cả
+                    .Home__sliderRightArrow
+            //- swiper
+            ul.Home__sliderSwiperContainer
+                .swiper-wrapper
+                    each product in OfficeProducts
+                        li.Home__sliderSwiperSlide.swiper-slide
+                                a(href=`/products/Office/${product.name}`).Home__sliderProductImageBox
+                                    img(src=product.img[0] alt=product.name)
+                                .Home__sliderProductContentBox
+                                    a(href=`/products/Office/${product.name}`).Home__sliderProductName.card-title= product.name
+                                    a(href=`/products/Office/${product.name}`).Home__sliderProductPrice= product.price
+                //- Add pagination
+                .Home__sliderSwiperPagination.swiper-pagination
+
+        .Home__slider
+            a(href="/categories/Security").Home__sliderTitleBox
+                .Home__sliderLeftTitleBox
+                    //- .Home__sliderIcon.Home__slideriPhoneIcon
+                    .Home__sliderTitle Bảo mật
+                .Home__sliderRightTitleBox
+                    .Home__sliderSeeAll Xem tất cả
+                    .Home__sliderRightArrow
+            //- swiper
+            ul.Home__sliderSwiperContainer
+                .swiper-wrapper
+                    each product in SecurityProducts
+                        li.Home__sliderSwiperSlide.swiper-slide
+                                a(href=`/products/Security/${product.name}`).Home__sliderProductImageBox
+                                    img(src=product.img[0] alt=product.name)
+                                .Home__sliderProductContentBox
+                                    a(href=`/products/Security/${product.name}`).Home__sliderProductName.card-title= product.name
+                                    a(href=`/products/Security/${product.name}`).Home__sliderProductPrice= product.price
+                //- Add pagination
+                .Home__sliderSwiperPagination.swiper-pagination
+
+
+        .Home__slider
+            a(href="/categories/Window").Home__sliderTitleBox
+                .Home__sliderLeftTitleBox
+                    //- .Home__sliderIcon.Home__slideriPhoneIcon
+                    .Home__sliderTitle Window
+                .Home__sliderRightTitleBox
+                    .Home__sliderSeeAll Xem tất cả
+                    .Home__sliderRightArrow
+            //- swiper
+            ul.Home__sliderSwiperContainer
+                .swiper-wrapper
+                    each product in WindowProducts
+                        li.Home__sliderSwiperSlide.swiper-slide
+                                a(href=`/products/Window/${product.name}`).Home__sliderProductImageBox
+                                    img(src=product.img[0] alt=product.name)
+                                .Home__sliderProductContentBox
+                                    a(href=`/products/Window/${product.name}`).Home__sliderProductName.card-title= product.name
+                                    a(href=`/products/Window/${product.name}`).Home__sliderProductPrice= product.price
+                //- Add pagination
+                .Home__sliderSwiperPagination.swiper-pagination
+
+
+        .Home__slider
+            a(href="/categories/Google").Home__sliderTitleBox
+                .Home__sliderLeftTitleBox
+                    //- .Home__sliderIcon.Home__slideriPhoneIcon
+                    .Home__sliderTitle Google
+                .Home__sliderRightTitleBox
+                    .Home__sliderSeeAll Xem tất cả
+                    .Home__sliderRightArrow
+            //- swiper
+            ul.Home__sliderSwiperContainer
+                .swiper-wrapper
+                    each product in GoogleProducts
+                        li.Home__sliderSwiperSlide.swiper-slide
+                                a(href=`/products/Google/${product.name}`).Home__sliderProductImageBox
+                                    img(src=product.img[0] alt=product.name)
+                                .Home__sliderProductContentBox
+                                    a(href=`/products/Google/${product.name}`).Home__sliderProductName.card-title= product.name
+                                    a(href=`/products/Google/${product.name}`).Home__sliderProductPrice= product.price
+                //- Add pagination
+                .Home__sliderSwiperPagination.swiper-pagination
+
+
+        .Home__slider
+            a(href="/categories/Cloud").Home__sliderTitleBox
+                .Home__sliderLeftTitleBox
+                    //- .Home__sliderIcon.Home__slideriPhoneIcon
+                    .Home__sliderTitle Cloud
+                .Home__sliderRightTitleBox
+                    .Home__sliderSeeAll Xem tất cả
+                    .Home__sliderRightArrow
+            //- swiper
+            ul.Home__sliderSwiperContainer
+                .swiper-wrapper
+                    each product in CloudProducts
+                        li.Home__sliderSwiperSlide.swiper-slide
+                                a(href=`/products/Cloud/${product.name}`).Home__sliderProductImageBox
+                                    img(src=product.img[0] alt=product.name)
+                                .Home__sliderProductContentBox
+                                    a(href=`/products/Cloud/${product.name}`).Home__sliderProductName.card-title= product.name
+                                    a(href=`/products/Cloud/${product.name}`).Home__sliderProductPrice= product.price
+                //- Add pagination
+                .Home__sliderSwiperPagination.swiper-pagination
+
+
+    script(src="/javascript/swiper/swiper.js")
